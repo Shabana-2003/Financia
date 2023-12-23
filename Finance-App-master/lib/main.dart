@@ -10,6 +10,7 @@ void main() async {
   Hive.registerAdapter(AdddataAdapter());
   await Hive.openBox<FinancesData>('data');
   await Hive.openBox<FinancesData>('addDataBox');
+  
   await Hive.openBox<ProfileData>('profileBox');
 
   runApp(const MyApp());

@@ -28,88 +28,6 @@ class _HomeState extends State<Home> {
     'Saturday',
     'Sunday'
   ];
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     body: SafeArea(
-  //       child: Container(
-  //         color: Color.fromARGB(255, 254, 255, 255),
-  //         child: Column(
-  //           children: [
-  //             SizedBox(height: 330, child: _head()),
-  //             Padding(
-  //               padding: const EdgeInsets.symmetric(horizontal: 15),
-  //               child: Row(
-  //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //                 children: [
-  //                   Text(
-  //                     'Transactions History',
-  //                     style: TextStyle(
-  //                       fontWeight: FontWeight.w600,
-  //                       fontSize: 19,
-  //                       color: Colors.black,
-  //                     ),
-  //                   ),
-  //                   Text(
-  //                     'Amount',
-  //                     style: TextStyle(
-  //                       fontWeight: FontWeight.w600,
-  //                       fontSize: 15,
-  //                       color: Colors.grey,
-  //                     ),
-  //                   ),
-  //                 ],
-  //               ),
-  //             ),
-  //             Expanded(
-  //               child: GlowingOverscrollIndicator(
-  //                 axisDirection: AxisDirection.down,
-  //                 color: Color.fromARGB(255, 2, 116, 106),
-  //                 child: ValueListenableBuilder(
-  //                   valueListenable: box.listenable(),
-  //                   builder: (context, value, child) {
-  //                     List<Add_data> reversedHistoryList =
-  //                         box.values.toList().reversed.toList();
-  //                     if (reversedHistoryList.isEmpty) {
-  //                       return Center(
-  //                         child: Column(
-  //                           mainAxisAlignment: MainAxisAlignment.start,
-  //                           crossAxisAlignment: CrossAxisAlignment.center,
-  //                           children: [
-  //                             Image.asset(
-  //                               'images/home.png',
-  //                               height: 250,
-  //                               width: 250,
-  //                             ),
-  //                             Text(
-  //                               'Empty wallet, add transactions to fill',
-  //                               style: TextStyle(
-  //                                   fontSize: 14,
-  //                                   color: Color.fromARGB(255, 49, 48, 48)),
-  //                             ),
-  //                           ],
-  //                         ),
-  //                       );
-  //                     }
-
-  //                     return ListView.builder(
-  //                       itemCount: reversedHistoryList.length,
-  //                       itemBuilder: (context, index) {
-  //                         history = reversedHistoryList[index];
-  //                         return getList(history, index);
-  //                       },
-  //                     );
-  //                   },
-  //                 ),
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -341,7 +259,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Positioned(
                     top: 40,
-                    right: 20,                  
+                    right: 20,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
@@ -395,26 +313,6 @@ class _HomeState extends State<Home> {
                             color: Color.fromARGB(255, 224, 223, 223),
                           ),
                         ),
-                        // ValueListenableBuilder(
-                        //   valueListenable:
-                        //       Hive.box<ProfileData>('profileBox').listenable(),
-                        //   builder: (context, value, child) {
-                        //     ProfileData profileData =
-                        //         Hive.box<ProfileData>('profileBox').getAt(0) ??
-                        //             ProfileData('', '', '', '');
-
-                        //     String nickname = profileData.nickName;
-
-                        //     return Text(
-                        //       nickname.isNotEmpty ? nickname : 'PocketBuddies',
-                        //       style: TextStyle(
-                        //         fontWeight: FontWeight.w600,
-                        //         fontSize: 20,
-                        //         color: Colors.white,
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
                         ValueListenableBuilder(
                           valueListenable:
                               Hive.box<ProfileData>('profileBox').listenable(),

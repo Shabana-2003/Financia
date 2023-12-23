@@ -55,6 +55,13 @@ dev_dependencies:
   flutter_lints: ^3.0.1 
   watcher: ^1.1.0
   analyzer: ^4.7.0
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/FinanciaLogo.png"
+  min_sdk_android: 21 
   # Use the latest version available
 
   # The "flutter_lints" package below contains a set of recommended lints to
