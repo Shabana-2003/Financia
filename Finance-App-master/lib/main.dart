@@ -2,6 +2,7 @@ import 'package:financia/Screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'data/model/hivemodels.dart';
+import 'package:financia/Screens/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,20 +11,24 @@ void main() async {
   Hive.registerAdapter(AdddataAdapter());
   await Hive.openBox<FinancesData>('data');
   await Hive.openBox<FinancesData>('addDataBox');
-  
   await Hive.openBox<ProfileData>('profileBox');
 
-  runApp(const MyApp());
+  Box<FinancesData> dataBox = Hive.box<FinancesData>('data');
+  bool hasFinancialData = dataBox.isNotEmpty;
+
+  runApp(MyApp(hasFinancialData: hasFinancialData));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final bool hasFinancialData;
+
+  const MyApp({Key? key, required this.hasFinancialData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash(),
+      home: hasFinancialData ? Home() : Splash(),
     );
   }
 }
