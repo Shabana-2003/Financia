@@ -2,6 +2,7 @@ import 'package:financia/Screens/add.dart';
 import 'package:financia/widgets/chart.dart';
 import 'package:flutter/material.dart';
 import 'package:financia/data/utlity.dart';
+import 'package:intl/intl.dart';
 import '../data/model/hivemodels.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -159,7 +160,7 @@ class _StatisticsState extends State<Statistics> {
                               ),
                             ),
                             subtitle: Text(
-                              ' ${a[index].dateTime.year}-${a[index].dateTime.day}-${a[index].dateTime.month}',
+                             '${DateFormat('MMMM').format(a[index].dateTime)} ${a[index].dateTime.day}, ${a[index].dateTime.year}',
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                               ),

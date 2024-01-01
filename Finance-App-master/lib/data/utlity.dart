@@ -5,6 +5,8 @@ int totals = 0;
 
 final box = Hive.box<FinancesData>('data');
 
+
+
 int total() {
   var history2 = box.values.toList();
   List a = [0, 0];

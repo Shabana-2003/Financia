@@ -1,8 +1,8 @@
 import 'package:financia/Screens/splash.dart';
+import 'package:financia/widgets/bottomnavigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'data/model/hivemodels.dart';
-import 'package:financia/Screens/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: hasFinancialData ? Home() : Splash(),
+      home: hasFinancialData ? Bottom() : Splash(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:financia/Screens/add.dart';
 import 'package:flutter/material.dart';
 import 'package:financia/data/utlity.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
 import '../data/model/hivemodels.dart';
 
 class viewAll extends StatefulWidget {
@@ -152,10 +153,13 @@ class _StatisticsState extends State<viewAll> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            subtitle: Text(
-                              ' ${a[index].dateTime.year}-${a[index].dateTime.day}-${a[index].dateTime.month}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
+                            subtitle: Padding(
+                              padding: const EdgeInsets.only(top: 4),
+                              child: Text(
+                                '${DateFormat('MMMM').format(a[index].dateTime)} ${a[index].dateTime.day}, ${a[index].dateTime.year}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                             trailing: Text(

@@ -8,6 +8,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:financia/data/model/hivemodels.dart';
 import 'package:financia/data/utlity.dart';
 import 'package:financia/Screens/add.dart';
+import 'package:intl/intl.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -213,7 +214,7 @@ class _HomeState extends State<Home> {
     return ListTile(
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(5),
-        child: Image.asset('images/${history.name}.png', height: 40),
+        child: Image.asset('images/${history.name}.png', height: 50),
       ),
       title: Text(
         history.name,
@@ -222,10 +223,13 @@ class _HomeState extends State<Home> {
           fontWeight: FontWeight.w600,
         ),
       ),
-      subtitle: Text(
-        '${day[history.dateTime.weekday - 1]}  ${history.dateTime.year}-${history.dateTime.day}-${history.dateTime.month}',
-        style: TextStyle(
-          fontWeight: FontWeight.w600,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 4),
+        child: Text(
+          '${DateFormat('MMMM').format(history.dateTime)} ${history.dateTime.day}, ${history.dateTime.year}',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       trailing: Text(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:financia/data/model/hivemodels.dart';
+import 'package:intl/intl.dart';
 import 'add.dart';
 
 class Favorite extends StatefulWidget {
@@ -260,10 +261,13 @@ class _FavoritePageState extends State<Favorite> {
           fontWeight: FontWeight.w600,
         ),
       ),
-      subtitle: Text(
-        '${day[history.dateTime.weekday - 1]}  ${history.dateTime.year}-${history.dateTime.day}-${history.dateTime.month}',
-        style: TextStyle(
-          fontWeight: FontWeight.w600,
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 4),
+        child: Text(
+       '${DateFormat('MMMM').format(history.dateTime)} ${history.dateTime.day}, ${history.dateTime.year}' ,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       trailing: Text(

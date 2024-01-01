@@ -1,11 +1,10 @@
 import 'dart:io';
-//import 'dart:typed_data';
 import 'package:financia/data/model/hivemodels.dart';
+import 'package:financia/screens/settings/settings.dart';
 import 'package:financia/widgets/bottomnavigationbar.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
-//import 'package:path_provider/path_provider.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -15,7 +14,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   late TextEditingController _nameController;
-  //late TextEditingController _incomeController;
   late TextEditingController _profilePhotoController;
   late TextEditingController _petNameController;
 
@@ -34,20 +32,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     _loadProfileData();
     _profileData = ProfileData('', '', '', '');
   }
-
-// Future<void> _loadProfileData() async {
-//   final profileBox = await Hive.openBox<ProfileData>('profileBox');
-//   if (profileBox.isNotEmpty) {
-//     _profileData = profileBox.getAt(0)!;
-
-//     setState(() {
-//       _nameController.text = _profileData.name;
-//       _selectedGender = _profileData.gender;
-//       _petNameController.text = _profileData.nickName;
-//       _profilePhotoController.text = _profileData.profilePhotoPath;
-//     });
-//   }
-// }
 
   Future<void> _loadProfileData() async {
     final profileBox = await Hive.openBox<ProfileData>('profileBox');
@@ -85,42 +69,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-// Future<void> _pickImage() async {
-//   final ImagePicker _picker = ImagePicker();
-
-//   try {
-//     final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-
-//     if (pickedFile != null) {
-//       File file = File(pickedFile.path);
-
-//       setState(() {
-//         _profileData.profilePhotoPath = pickedFile.path;
-//         _profilePhotoController.text = pickedFile.path;
-//       });
-//     }
-//   } catch (e) {
-//     print('Error picking image: $e');
-//   }
-// }
-
-//  Future<void> _pickImage() async {
-//     final ImagePicker _picker = ImagePicker();
-
-// try {
-//   final XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-
-//   if (pickedFile != null) {
-//     setState(() {
-//       _profileData.profilePhotoPath = pickedFile.path;
-//       _profilePhotoController.text = pickedFile.path;
-//     });
-//   }
-// } catch (e) {
-//   print('Error picking image: $e');
-// }
-
-//   }
   Future<void> _pickImage() async {
     final ImagePicker _picker = ImagePicker();
 
@@ -202,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Stack(
                       children: [
                         Positioned(
-                          top: 65,
+                          top: 50,
                           left: 25,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,6 +164,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                        Positioned(
+                          top: 43,
+                          right: 5,
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SettingsScreen()),
+                              );
+                            },
+                            icon: Icon(Icons.settings),
+                            color: Color.fromARGB(255, 227, 227, 227),
                           ),
                         ),
                       ],
@@ -378,11 +341,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ElevatedButton(
                 onPressed: () {
                   _saveProfile();
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //   const SnackBar(
-                  //     content: Text('Profile saved successfully'),
-                  //   ),
-                  // );
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) => Bottom(),

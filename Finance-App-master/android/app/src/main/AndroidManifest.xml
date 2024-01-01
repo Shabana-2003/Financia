@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myAppName.Financia">
    <application
-        android:label="Financia"
+        android:label="CashCraft"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

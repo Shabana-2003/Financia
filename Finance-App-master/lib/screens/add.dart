@@ -61,19 +61,17 @@ class AddScreenState extends State<AddScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              background_container(context),
-              SingleChildScrollView(
-                child: Positioned(
-                  //top: 220,
-                  child: main_container(),
-                ),
-              ),
-            ],
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+             
+              children: [
+                background_container(context),
+                 main_container(),
+                 
+              ],
+            ),
           ),
         ),
       ),
@@ -444,7 +442,7 @@ class AddScreenState extends State<AddScreen> {
       children: [
         Container(
           width: double.infinity,
-          height: 240,
+          height: 100,
           decoration: BoxDecoration(
             color: Color(0xff368983),
             borderRadius: BorderRadius.only(
@@ -498,28 +496,28 @@ class AddScreenState extends State<AddScreen> {
 
 class StateService {
   static final List<String> _item = [
-    "Food and Groceries",
-    "Transfer",
-    "Transportation",
-    "Education",
-    "Housing",
-    "Utilities",
-    "Healthcare",
-    "Entertainment",
-    "Savings",
-    "Clothing",
-    "Personal Care",
-    "Debt Payments",
-    "Travel",
-    "Insurance",
-    "Gifts and Donations",
-    "Home Improvement",
-    "Taxes",
     "Childcare",
-    "Pet Expenses",
+    "Clothing",
+    "Debt Payments",
+    "Education",
     "Emergency Fund",
+    "Entertainment",
+    "Food and Groceries",
+    "Gifts and Donations",
+    "Healthcare",
+    "Home Improvement",
+    "Housing",
+    "Insurance",
+    "Miscellaneous",
+    "Other",
+    "Personal Care",
+    "Pet Expenses",
+    "Savings",
     "Subscriptions",
-    "Miscellaneous"
+    "Taxes",
+    "Transportation",
+    "Travel",
+    "Utilities"
   ];
 
   static List<String> getSuggestions(String query) {
