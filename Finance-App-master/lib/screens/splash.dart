@@ -79,7 +79,7 @@ Widget build(BuildContext context) {
               child: Material(
                 color: Colors.transparent,
                 child: Text(
-                  'F I N A N C I A',
+                  'C A S H C R A F T',
                   style: TextStyle(
                     fontSize: 18,
                     color: Color.fromARGB(255, 91, 90, 90),

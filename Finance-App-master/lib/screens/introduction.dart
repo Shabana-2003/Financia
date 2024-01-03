@@ -12,18 +12,18 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   List<IntroductionItem> _introductionItems = [
     IntroductionItem(
       image: 'images/image11.jpeg',
-      title: 'Welcome to Financia',
+      title: 'Welcome to CashCraft',
       description:
           'Your one-stop financial hub for managing, tracking, and growing your money.',
     ),
     IntroductionItem(
       image: 'images/image22.jpeg',
-      title: 'Join Financia ',
-      description: 'With Financia, financial empowerme is at your fingertips.',
+      title: 'Join CashCraft',
+      description: 'With CashCraft, financial empowerme is at your fingertips.',
     ),
     IntroductionItem(
       image: 'images/image33.jpeg',
-      title: 'Explore Financia',
+      title: 'Explore CashCraft',
       description:
           'Are you ready to take charge of your financial future? increasing your financial assets.',
     ),
